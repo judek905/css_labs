@@ -1,0 +1,206 @@
+ /* RESET / BASE STYLES
+   Removes default browser spacing and sets
+   consistent base styles for the whole page */
+
+* {
+  margin: 0;           /* removes default margin browsers add to elements */
+  padding: 0;           /* removes default padding browsers add to elements */
+  box-sizing: border-box; /* makes width/height include padding & border, so sizing is predictable */
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif; /* sets the default font for the whole site */
+  line-height: 1.6;      /* adds space between lines of text for readability */
+  color: #333;           /* dark gray text color (softer than pure black) */
+  background-color: #fdfdfd; /* very light background color for the page */
+}
+
+img {
+  max-width: 100%;   /* images never overflow their container, key for responsiveness */
+  display: block;    /* removes small gap that appears under inline images */
+}
+
+a {
+  text-decoration: none; /* removes the default underline on links */
+  color: inherit;         /* links use the text color of their parent instead of default blue */
+}
+
+ul {
+  list-style: none; /* removes bullet points from lists (used for nav menus) */
+}
+
+
+/* CONTAINER
+   A reusable wrapper to center content and
+   control the max width on large screens */
+
+.container {
+  width: 90%;          /* container takes up 90% of the screen width */
+  max-width: 1200px;    /* but never grows wider than 1200px on big screens */
+  margin: 0 auto;        /* centers the container horizontally */
+  padding: 20px 0;       /* adds vertical spacing above/below content */
+}
+
+
+/* HEADER / NAVIGATION
+   The top bar with logo and menu links */
+
+header {
+  background-color: #ffffff;                 /* white background for the header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    /* subtle shadow to separate header from content */
+  position: sticky;                            /* header stays visible when scrolling */
+  top: 0;                                       /* sticks to the very top of the viewport */
+  z-index: 100;                                 /* keeps header above other content when overlapping */
+}
+
+.navbar {
+  display: flex;                  /* lays out logo and nav menu side by side */
+  justify-content: space-between; /* pushes logo to left, menu to right */
+  align-items: center;             /* vertically centers items in the navbar */
+  padding: 15px 20px;              /* inner spacing around navbar content */
+}
+
+.navbar .logo {
+  font-size: 1.5rem;  /* makes the logo text larger than normal text */
+  font-weight: bold;   /* makes the logo text stand out */
+}
+
+.navbar nav ul {
+  display: flex;  /* lays out menu items horizontally instead of stacked */
+  gap: 25px;       /* adds spacing between each menu item */
+}
+
+.navbar nav a {
+  font-weight: 500;               /* slightly bold menu text */
+  transition: color 0.3s ease;    /* smoothly animates color change on hover */
+}
+
+.navbar nav a:hover {
+  color: #b5651d; /* changes link color when the user hovers over it (accent color) */
+}
+
+
+/* HERO SECTION
+   The large intro banner near the top of the page */
+
+.hero {
+  text-align: center;         /* centers all text inside the hero section */
+  padding: 80px 20px;          /* generous spacing above/below and on the sides */
+  background-color: #f5ede4;   /* soft background color for the hero banner */
+}
+
+.hero h1 {
+  font-size: 2.5rem;   /* large heading text to grab attention */
+  margin-bottom: 15px;  /* space between heading and paragraph below it */
+}
+
+.hero p {
+  font-size: 1.2rem;    /* slightly larger paragraph text for emphasis */
+  margin-bottom: 25px;   /* space between paragraph and button below it */
+  color: #555;            /* medium gray for softer contrast than the heading */
+}
+
+
+/* BUTTONS
+   Reusable call-to-action button style */
+
+.btn {
+  display: inline-block;      /* allows padding/width to apply properly like a block, but stays inline */
+  padding: 12px 28px;          /* inner spacing to make the button feel clickable */
+  background-color: #b5651d;   /* accent background color */
+  color: #fff;                  /* white text for contrast against the background */
+  border: none;                  /* removes default button border */
+  border-radius: 6px;            /* rounds the corners of the button */
+  cursor: pointer;                /* changes cursor to a pointer to show it's clickable */
+  font-size: 1rem;                 /* normal readable text size */
+  transition: background-color 0.3s ease; /* smooth color change on hover */
+}
+
+.btn:hover {
+  background-color: #8f4e14; /* darker shade when hovered, gives visual feedback */
+}
+
+
+/* CARD / GRID SECTIONS
+   Used for displaying items like products,
+   blog posts, or menu items in a grid layout */
+
+.grid {
+  display: grid;                                    /* enables CSS grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    /* creates as many columns as fit, each at least 250px wide,
+       and they grow equally to fill remaining space */
+  gap: 25px;         /* spacing between grid items */
+  padding: 40px 0;    /* vertical spacing above/below the grid */
+}
+
+.card {
+  background: #fff;                              /* white card background */
+  border-radius: 8px;                             /* rounded corners for a softer look */
+  overflow: hidden;                                /* keeps rounded corners clean by clipping content (like images) */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);        /* subtle shadow to lift the card visually */
+  transition: transform 0.3s ease;                  /* smooth animation when the card moves */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* lifts the card slightly upward on hover for interactivity */
+}
+
+.card img {
+  width: 100%;        /* image fills the full width of the card */
+  height: 200px;        /* fixed height so all cards look uniform */
+  object-fit: cover;    /* crops the image to fill the space without distorting it */
+}
+
+.card-content {
+  padding: 15px; /* inner spacing around text inside the card */
+}
+
+
+/* FOOTER
+   Bottom section of the page */
+
+footer {
+  background-color: #2b2b2b; /* dark background to visually separate footer from page */
+  color: #fff;                  /* white text for contrast against dark background */
+  text-align: center;            /* centers footer text */
+  padding: 25px 20px;             /* inner spacing around footer content */
+  margin-top: 40px;                /* space between footer and content above it */
+}
+
+
+/* RESPONSIVE DESIGN
+   Media queries adjust the layout for
+   smaller screens like tablets and phones */
+
+@media (max-width: 768px) {
+  /* applies these styles when screen width is 768px or smaller (tablets) */
+
+  .navbar {
+    flex-direction: column; /* stacks logo and menu vertically instead of side by side */
+    gap: 10px;                /* adds spacing between stacked items */
+  }
+
+  .navbar nav ul {
+    flex-direction: column; /* stacks menu links vertically */
+    text-align: center;       /* centers the stacked menu links */
+    gap: 10px;                  /* spacing between each stacked link */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* reduces heading size so it fits smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* applies these styles when screen width is 480px or smaller (phones) */
+
+  .hero {
+    padding: 50px 15px; /* reduces hero padding to save space on small screens */
+  }
+
+  .btn {
+    width: 100%;         /* button stretches full width for easier tapping on mobile */
+    text-align: center;    /* centers button text */
+  }
+}
